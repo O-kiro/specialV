@@ -70,9 +70,15 @@ header p {
   margin: 1rem 0;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 12px rgba(255, 128, 171, 0.2);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
   animation: fadeSlideUp 0.8s ease forwards;
   opacity: 0;
+}
+
+.moment:hover {
+  box-shadow: 0 0 25px rgba(255, 128, 171, 0.5);
+  transform: translateY(-3px);
 }
 
 .moment:nth-child(even) {
