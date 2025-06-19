@@ -6,9 +6,11 @@
   <title>Happy Seventeen, V</title>
   <link rel="stylesheet" href="styles.css">
   <script>
-    function showLetter() {
-      document.getElementById('secret-letter').style.display = 'block';
-    }
+   function showLetter() {
+  const letter = document.getElementById('secret-letter');
+  letter.classList.add('show');
+}
+
 
     document.addEventListener("DOMContentLoaded", function () {
       const lazyIframes = document.querySelectorAll('.spotify-lazy');
