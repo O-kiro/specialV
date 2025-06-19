@@ -1,137 +1,208 @@
 /* styles.css */
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to bottom, #f8e9f0, #ffe5ec);
-    color: #333;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #f8e9f0, #ffe5ec);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="0" y="20" font-size="20" fill="pink">❤</text></svg>');
+  animation: hearts 20s linear infinite;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+@keyframes hearts {
+  from { background-position: 0 0; }
+  to { background-position: 0 1000px; }
+}
+
+header {
+  background-color: #ffd6e0;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 200, 230, 0.6);
+  animation: glowHeader 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowHeader {
+  from { box-shadow: 0 0 10px rgba(255, 200, 230, 0.3); }
+  to   { box-shadow: 0 0 30px rgba(255, 200, 230, 0.8); }
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.timeline {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.timeline h2 {
+  text-align: center;
+  color: #c2185b;
+  font-size: 2rem;
+  animation: fadeIn 1s ease forwards;
+}
+
+.moment {
+  background: #fff0f5;
+  border-left: 5px solid #ff80ab;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  animation: fadeSlideUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.moment:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+.moment:nth-child(odd) {
+  animation-delay: 0.4s;
+}
+
+.moment h3 {
+  margin-top: 0;
+  color: #ad1457;
+}
+
+.music-player {
+  padding: 2rem;
+  text-align: center;
+  background: #fff7fb;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.music-player h2 {
+  font-size: 1.8rem;
+  color: #6a1b9a;
+}
+
+.spotify-embed, .spotify-lazy {
+  margin-top: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.final-message {
+  background: #fff0f0;
+  padding: 2rem;
+  text-align: center;
+  animation: fadeIn 2s ease forwards;
+}
+
+.final-message h2 {
+  color: #e91e63;
+  font-size: 1.6rem;
+}
+
+button {
+  background-color: #f06292;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #ec407a;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(240, 98, 146, 0.3);
+}
+
+.hidden-letter {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.hidden-letter.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+footer {
+  padding: 1.5rem;
+  text-align: center;
+  font-style: italic;
+  color: #888;
+  background-color: #fce4ec;
+  margin-top: 2rem;
+  font-size: 1rem;
+  animation: fadeIn 2s ease forwards;
+}
+
+#quote-random {
+  margin-top: 1rem;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #6a1b9a;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  header {
-    background-color: #ffd6e0;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
   header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-  }
-  
-  header p {
-    font-size: 1.1rem;
-    color: #555;
-  }
-  
-  .timeline {
-    padding: 2rem;
-    max-width: 800px;
-    margin: auto;
-  }
-  
-  .timeline h2 {
-    text-align: center;
-    color: #c2185b;
-    font-size: 2rem;
-  }
-  
-  .moment {
-    background: #fff0f5;
-    border-left: 5px solid #ff80ab;
-    margin: 1rem 0;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  }
-  
-  .moment h3 {
-    margin-top: 0;
-    color: #ad1457;
-  }
-  
-  .music-player {
-    padding: 2rem;
-    text-align: center;
-    background: #fff7fb;
-  }
-  
-  .music-player h2 {
     font-size: 1.8rem;
-    color: #6a1b9a;
   }
-  
-  .spotify-embed, .spotify-lazy {
-    margin-top: 1rem;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  
-  .final-message {
-    background: #fff0f0;
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  .final-message h2 {
-    color: #e91e63;
-    font-size: 1.6rem;
-  }
-  
-  button {
-    background-color: #f06292;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #ec407a;
-  }
-  
-  .hidden-letter {
-    display: none;
-    margin-top: 1.5rem;
-    font-style: italic;
-    color: #555;
+
+  .timeline {
     padding: 1rem;
-    background: #ffe5ec;
-    border-left: 4px solid #f06292;
-    border-radius: 6px;
   }
-  
-  footer {
-    padding: 1.5rem;
-    text-align: center;
-    font-style: italic;
-    color: #888;
-    background-color: #fce4ec;
-    margin-top: 2rem;
-    font-size: 1rem;
+
+  .moment {
+    font-size: 0.95rem;
   }
-  
-  @media (max-width: 600px) {
-    header h1 {
-      font-size: 1.8rem;
-    }
-  
-    .timeline {
-      padding: 1rem;
-    }
-  
-    .moment {
-      font-size: 0.95rem;
-    }
-  
-    button {
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-    }
+
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
+}
