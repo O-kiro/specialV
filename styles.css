@@ -28,6 +28,21 @@ body::before {
   to { background-position: 0 1000px; }
 }
 
+@keyframes openEnvelope {
+  0% {
+    transform: scale(0.8) rotateX(90deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) rotateX(-10deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
 header {
   background-color: #ffd6e0;
   padding: 2rem;
@@ -145,14 +160,22 @@ button:hover {
 .hidden-letter {
   display: none;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
+  transform: scale(0.8) rotateX(90deg);
+  transform-origin: top;
+  transition: transform 0.8s ease, opacity 0.5s ease;
+  background: #ffeef3;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  box-shadow: 0 0 20px rgba(240, 98, 146, 0.3);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #880e4f;
 }
 
 .hidden-letter.show {
   display: block;
-  opacity: 1;
-  transform: translateY(0);
+  animation: openEnvelope 1s ease forwards;
 }
 
 footer {
